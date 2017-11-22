@@ -40,6 +40,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
 	$(LOCAL_PATH)/rootdir/ueventd.mt6589.rc:root/ueventd.mt6589.rc \
 	$(LOCAL_PATH)/rootdir/init.protect.rc:root/init.protect.rc \
+	$(LOCAL_PATH)/rootdir/init.charging.rc:root/init.charging.rc \
 	$(LOCAL_PATH)/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab \
 	$(LOCAL_PATH)/rootdir/init.mt6589.usb.rc:/root/init.mt6589.usb.rc \
 	$(LOCAL_PATH)/rootdir/sbin/ksh:root/sbin/ksh \
@@ -63,10 +64,8 @@ PRODUCT_COPY_FILES += \
 
 # build.prop	
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-        ro.adb.secure=0 \
-        ro.mount.fs=EXT4 \
-        ro.secure=0 \
-        ro.allow.mock.location=1
+        ro.mount.fs=EXT4
+
         
 PRODUCT_PROPERTY_OVERRIDES := \
 	fmradio.driver.chip=3 \
@@ -113,7 +112,7 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-	lib_driver_cmd_mtk
+	lib_driver_cmd_mt66xx
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
@@ -137,12 +136,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	libcorkscrew \
         gralloc_extra
-        
+
+# Hack for build        
 PRODUCT_COPY_FILES += \
 	vendor/huawei/g700/proprietary/lib/libdpframework.so:obj/lib/libdpframework.so \
 	vendor/huawei/g700/proprietary/lib/libdpframework_os.so:obj/lib/libdpframework_os.so \
-	vendor/huawei/g700/proprietary/lib/libdpframework_plat.so:obj/lib/libdpframework_plat.so
-		       	       	       
+	vendor/huawei/g700/proprietary/lib/libdpframework_plat.so:obj/lib/libdpframework_plat.so \
+	vendor/huawei/g700/proprietary/lib/libcustom_prop.so:obj/lib/libcustom_prop.so	\
+	vendor/huawei/g700/proprietary/lib/libstagefright_memutil.so:obj/lib/libstagefright_memutil.so	\
+	vendor/huawei/g700/proprietary/lib/libvcodecdrv.so:obj/lib/libvcodecdrv.so				       	       	       
 # Build Torch
 PRODUCT_PACKAGES += \
 	Torch
