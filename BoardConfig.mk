@@ -35,7 +35,8 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 #MTK DEFINITIONS
 HAVE_XLOG_FEATURE := yes
-HAVE_AEE_FEATURE := yes
+#HAVE_AEE_FEATURE := yes
+MTK_FM_SUPPORT := yes
 MTK_ION_SUPPORT := yes
 MTK_HWC_SUPPORT := yes
 MTK_DP_FRAMEWORK := yes
@@ -61,7 +62,6 @@ BOARD_USES_YUSU_LCD_HW_OVERLAY := true
 BOARD_USES_ARGB8888_FB := true
 
 BOARD_HAS_MTK_HARDWARE := true
-#BOARD_NEEDS_OLD_HWC_API := true
 
 # BT
 BOARD_HAVE_BLUETOOTH := true
@@ -136,6 +136,7 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
     file_contexts \
     device.te \
+    app.te \
     pvrsrvctl.te \
     netd.te
 
@@ -163,5 +164,5 @@ $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libstagefright_memutil_intermediate
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libstagefright_memutil_intermediates/export_includes)
 $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libvcodecdrv_intermediates/)
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libvcodecdrv_intermediates/export_includes)
-# Hack for use prebuilt libwebviewchromium
+# Hack for use prebuilt libwebviewchromium (yes/no)
 PRODUCT_PREBUILT_WEBVIEWCHROMIUM := no
