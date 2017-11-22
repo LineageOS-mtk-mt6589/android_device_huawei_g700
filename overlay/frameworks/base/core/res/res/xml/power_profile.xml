@@ -14,7 +14,7 @@
     <item name="dsp.video">351</item>
     <item name="radio.active">31.7</item>
     <item name="radio.scanning">189.6</item>
-    <item name="gps.on">0.2</item>
+    <item name="gps.on">100.2</item>
     <array name="radio.on">
         <value>11.9</value>
         <value>11.9</value>
