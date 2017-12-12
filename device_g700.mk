@@ -127,7 +127,18 @@ PRODUCT_PACKAGES += \
 	libblisrc \
         libdashplayer \
         libxlog
-        
+
+# FM Radio
+PRODUCT_PACKAGES += \
+        libmtkplayer \
+     	libfmjni \
+	libfmmt6620 \
+        libfmmt6628 \
+        libfmmt6627 \
+        libfmmt6630 \
+        libfmcust \
+        FmRadio \
+                
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
 	$(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
