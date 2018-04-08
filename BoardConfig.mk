@@ -96,13 +96,8 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_FLASH_BLOCK_SIZE := 512
 TARGET_USERIMAGES_USE_EXT4 := true
-
-# Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_FOLDER)/rootdir/twrp.fstab
-TARGET_PREBUILT_RECOVERY_KERNEL := $(DEVICE_FOLDER)/prebuilt/kernel
-# TARGET_NO_RECOVERY := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-# RECOVERY_VARIANT=twrp
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 # MKIMAGE
 TARGET_MKIMAGE := device/huawei/g700/mkimage
@@ -141,6 +136,12 @@ BOARD_SEPOLICY_UNION += \
     netd.te
 
 # TWRP
+#RECOVERY_VARIANT=twrp
+TARGET_PREBUILT_RECOVERY_KERNEL := $(DEVICE_FOLDER)/prebuilt/kernel_rec
+#TARGET_NO_RECOVERY := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 TW_NO_USB_STORAGE := true
@@ -154,15 +155,10 @@ TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_NO_SCREEN_BLANK := true
+TW_THEME := portrait_hdpi
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
+TARGET_RECOVERY_FSTAB := $(DEVICE_FOLDER)/rootdir/recovery.fstab
 
-# Hack for build
-$(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libdpframework_intermediates/)
-$(shell touch $(OUT)/obj/SHARED_LIBRARIES/libdpframework_intermediates/export_includes)
-$(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libcustom_prop_intermediates/)
-$(shell touch $(OUT)/obj/SHARED_LIBRARIES/libcustom_prop_intermediates/export_includes)
-$(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libstagefright_memutil_intermediates/)
-$(shell touch $(OUT)/obj/SHARED_LIBRARIES/libstagefright_memutil_intermediates/export_includes)
-$(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libvcodecdrv_intermediates/)
-$(shell touch $(OUT)/obj/SHARED_LIBRARIES/libvcodecdrv_intermediates/export_includes)
 # Hack for use prebuilt libwebviewchromium (yes/no)
 PRODUCT_PREBUILT_WEBVIEWCHROMIUM := no

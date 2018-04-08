@@ -156,7 +156,7 @@ on fs_property:ro.mount.fs=YAFFS
     chown root /system/bin/pppd
     chmod 4755 /system/bin/pppd
     chown root /system/etc/ppp/ip-up-cdma
-    chmod 4755 /system/et/ppp/ip-up-cdma
+    chmod 4755 /system/etc/ppp/ip-up-cdma
     chown root /system/etc/ppp/ipv6-up-cdma
     chmod 4755 /system/etc/ppp/ipv6-up-cdma
     chown root /system/etc/ppp/link-down-cdma

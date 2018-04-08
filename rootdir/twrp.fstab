@@ -1,10 +1,23 @@
-/dev/bootimg			/boot		emmc	defaults	defaults
-/dev/block/mmcblk0p6	/cache		ext4	defaults	defaults
-/dev/block/mmcblk0p8	/data		ext4	defaults	defaults
-/dev/misc				/misc		emmc	defaults	defaults
-/dev/recovery			/recovery	emmc	defaults	defaults
-/dev/block/mmcblk0p5	/system		ext4	defaults	defaults
-/dev/block/mmcblk1p1	/sdcard		vfat	defaults	defaults
-/dev/nvram				/nvram		emmc	defaults	defaults
-/dev/uboot				/uboot		emmc	defaults	defaults
-/dev/logo				/logo		emmc	defaults	defaults
+/boot		emmc		/dev/bootimg
+/cache	f2fs		/emmc@cache
+/data		f2fs		/emmc@usrdata
+/misc			emmc		/dev/misc		flags=display="Misc";backup=1
+/recovery		emmc		/dev/recovery
+/system	f2fs		/emmc@android
+/sdcard		vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1
+/cust			ext4		/emmc@cust		flags=display="Cust";backup=1
+/nvram		emmc		/dev/nvram		flags=display="Nvram";backup=1
+/uboot		emmc		/dev/uboot		flags=display="Uboot";backup=1
+/logo		emmc		/dev/logo		flags=display="Logo";backup=1
+/ebr1		emmc		/dev/ebr1		flags=display="EBR1";backup=1
+/ebr2		emmc		/dev/ebr2		flags=display="EBR2";backup=1
+/mbr		emmc		/dev/mbr		flags=display="MBR";backup=1
+/preloader	emmc		/dev/preloader	flags=display="Preloader";backup=1
+/pmt		emmc		/dev/pmt		flags=display="Pmt";backup=1
+/pro_info	emmc		/dev/pro_info	flags=display="Pro_Info";backup=1
+/protect_f	ext4		/emmc@protect_f	flags=display="Protect_f";backup=1
+/protect_s	ext4		/emmc@protect_s	flags=display="Protect_f";backup=1
+/seccfg		emmc		/dev/seccfg		flags=display="Seccfg";backup=1
+/sec_ro		emmc		/dev/sec_ro		flags=display="Sec_ro";backup=1
+/expdb		emmc		/dev/expdb		flags=display="Expdb";backup=1
+/bmtpool	emmc		/dev/bmtpool	flags=display="Bmtpool";backup=1
